@@ -1,0 +1,25 @@
+[
+  {
+    "shopID": "pasanen",
+    "name": "Pasanen's Wares",
+    "sellsAtPercentage": 130,
+    "buysAtPercentage": 40,
+    "buysAnything": true,
+    "stocks": [
+      {
+        "itemID": 64,
+        "quantity": 5,
+        "restockTime": 100,
+        "isDefaultStock": true
+      },
+      {
+        "itemID": 48,
+        "quantity": 2,
+        "restockTime": 100,
+        "isDefaultStock": true
+      }
+    ],
+
+    "relatedEntities": [14]
+  }
+]

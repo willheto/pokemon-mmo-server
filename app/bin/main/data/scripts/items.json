@@ -1,0 +1,172 @@
+[
+  {
+    "itemID": 99,
+    "name": "Steel Sword",
+    "examine": "A razor sharp sword.",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_99.png",
+    "value": 300
+  },
+  {
+    "itemID": 100,
+    "name": "Bronze Sword",
+    "examine": "A razor sharp sword.",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_100.png",
+    "value": 150
+  },
+  {
+    "itemID": 101,
+    "name": "Mithril Sword",
+    "examine": "A razor sharp sword.",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_101.png",
+    "value": 700
+  },
+  {
+    "itemID": 12,
+    "name": "Steel axe",
+    "examine": "Should be able to cut down trees with this.",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_12.png",
+    "value": 250
+  },
+  {
+    "itemID": 36,
+    "name": "Duke's scroll",
+    "examine": "A scroll with the king's seal. I better not lose this.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_36.png",
+    "value": -1
+  },
+  {
+    "itemID": 64,
+    "name": "Apple",
+    "examine": "A juicy green apple.",
+    "isWieldable": false,
+    "isEdible": true,
+    "isStackable": false,
+    "spriteName": "item_64.png",
+    "value": 5
+  },
+  {
+    "itemID": 65,
+    "name": "Cheese",
+    "examine": "A block of cheese.",
+    "isWieldable": false,
+    "isEdible": true,
+    "isStackable": false,
+    "spriteName": "item_65.png",
+    "value": 8
+  },
+  {
+    "itemID": 67,
+    "name": "Blueberry pie",
+    "examine": "Looks delicious.",
+    "isWieldable": false,
+    "isEdible": true,
+    "isStackable": false,
+    "spriteName": "item_67.png",
+    "value": 20
+  },
+  {
+    "itemID": 68,
+    "name": "Key",
+    "examine": "I wonder what this unlocks.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_68.png",
+    "value": -1
+  },
+  {
+    "itemID": 69,
+    "name": "Key",
+    "examine": "I wonder what this unlocks.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_69.png",
+    "value": -1
+  },
+  {
+    "itemID": 48,
+    "name": "Leather boots",
+    "examine": "Better than bare feet!",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_48.png",
+    "value": 60
+  },
+  {
+    "itemID": 43,
+    "name": "Emerald ring",
+    "examine": "This must be worth a fortune!",
+    "isWieldable": true,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_43.png",
+    "value": 1200
+  },
+  {
+    "itemID": 38,
+    "name": "Advertisement",
+    "examine": "Kebabs! 2 for 1! Only at Rodin's Kebab Shop.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_38.png",
+    "value": 1
+  },
+  {
+    "itemID": 70,
+    "name": "Candle",
+    "examine": "Something to light the way.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": false,
+    "spriteName": "item_70.png",
+    "value": 15
+  },
+  {
+    "itemID": 30,
+    "name": "Wizard's phial",
+    "examine": "A phial of magical liquid.",
+    "isWieldable": false,
+    "isEdible": true,
+    "isStackable": false,
+    "spriteName": "item_30.png",
+    "value": -1
+  },
+  {
+    "itemID": 102,
+    "name": "Coins",
+    "examine": "Oh boy, money!",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": true,
+    "spriteName": "item_102.png",
+    "value": -1
+  },
+  {
+    "itemID": 103,
+    "name": "Feather",
+    "examine": "A soft feather.",
+    "isWieldable": false,
+    "isEdible": false,
+    "isStackable": true,
+    "spriteName": "item_103.png",
+    "value": 3
+  }
+]

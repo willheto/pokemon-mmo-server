@@ -1,0 +1,47 @@
+[
+  {
+    "itemID": 99,
+    "accuracyBonus": 10,
+    "strengthBonus": 10,
+    "defenceBonus": 0,
+    "attackSpeed": 4,
+    "type": "sword",
+    "color": "#e0e5e5"
+  },
+  {
+    "itemID": 12,
+    "accuracyBonus": 5,
+    "strengthBonus": 5,
+    "defenceBonus": 0,
+    "attackSpeed": 5,
+    "type": "axe",
+    "color": "#e0e5e5"
+  },
+  {
+    "itemID": 100,
+    "accuracyBonus": 8,
+    "strengthBonus": 6,
+    "defenceBonus": 0,
+    "attackSpeed": 4,
+    "type": "sword",
+    "color": "#9b6602"
+  },
+  {
+    "itemID": 101,
+    "accuracyBonus": 10,
+    "strengthBonus": 12,
+    "defenceBonus": 0,
+    "attackSpeed": 4,
+    "type": "sword",
+    "color": "#2020b7"
+  },
+  {
+    "itemID": 48,
+    "accuracyBonus": 0,
+    "strengthBonus": 0,
+    "defenceBonus": 2,
+    "attackSpeed": 0,
+    "type": "boots",
+    "color": "#634101"
+  }
+]

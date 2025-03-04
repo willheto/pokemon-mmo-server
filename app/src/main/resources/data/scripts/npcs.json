@@ -1,0 +1,9 @@
+[
+  {
+    "entityIndex": 1,
+    "name": "Rival",
+    "type": 1,
+    "spriteName": "rival",
+    "isTalkable": true
+  }
+]

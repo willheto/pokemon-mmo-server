@@ -1,0 +1,380 @@
+[
+  {
+    "entityIndex": 1,
+    "name": "Goblin",
+    "examine": "A small, green creature.",
+    "respawnTime": 20,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 2,
+    "spriteName": "orc",
+    "isTalkable": false,
+    "dropTable": [
+      {
+        "itemID": 36,
+        "dropChance": 0.55
+      },
+      {
+        "itemID": 64,
+        "dropChance": 0.25
+      },
+      {
+        "itemID": 65,
+        "dropChance": 0.15
+      }
+    ]
+  },
+  {
+    "entityIndex": 2,
+    "name": "Duke",
+    "examine": "Some say he's the best swordsman in the land.",
+    "respawnTime": 20,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 3, 10, 17],
+
+    "dropTable": []
+  },
+  {
+    "entityIndex": 3,
+    "name": "Man",
+    "examine": "One of the many people in the land.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 5, 11, 23],
+    "dropTable": [
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 5
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 25
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 10
+      },
+      {
+        "itemID": 48,
+        "dropChance": 0.65
+      },
+      {
+        "itemID": 38,
+        "dropChance": 0.6
+      },
+      {
+        "itemID": 100,
+        "dropChance": 0.8
+      },
+      {
+        "itemID": 12,
+        "dropChance": 0.5
+      }
+    ]
+  },
+  {
+    "entityIndex": 4,
+    "name": "Man",
+    "examine": "One of the many people in the land.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [1, 25, 15, 1],
+
+    "dropTable": [
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 5
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 25
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 10
+      },
+      {
+        "itemID": 48,
+        "dropChance": 0.65
+      },
+      {
+        "itemID": 38,
+        "dropChance": 0.6
+      },
+      {
+        "itemID": 100,
+        "dropChance": 0.8
+      },
+      {
+        "itemID": 12,
+        "dropChance": 0.5
+      }
+    ]
+  },
+  {
+    "entityIndex": 5,
+    "name": "Man",
+    "examine": "One of the many people in the land.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [1, 26, 16, 2],
+
+    "dropTable": [
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 5
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 25
+      },
+      {
+        "itemID": 102,
+        "dropChance": 0.85,
+        "amount": 10
+      },
+      {
+        "itemID": 48,
+        "dropChance": 0.65
+      },
+      {
+        "itemID": 38,
+        "dropChance": 0.6
+      },
+      {
+        "itemID": 100,
+        "dropChance": 0.8
+      },
+      {
+        "itemID": 12,
+        "dropChance": 0.5
+      }
+    ]
+  },
+  {
+    "entityIndex": 6,
+    "name": "Priest",
+    "examine": "He's gone a bit mad, honestly.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 1, 16, 16],
+
+    "dropTable": []
+  },
+  {
+    "entityIndex": 7,
+    "name": "Guard",
+    "examine": "A guard of the city.",
+    "respawnTime": 25,
+    "skills": [5000, 5000, 10000, 1100, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 3, 17, 24],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 8,
+    "name": "Bat",
+    "examine": "Some people eat these. Gross.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 600, 0],
+    "type": 2,
+    "spriteName": "bat",
+    "isTalkable": false,
+    "dropTable": []
+  },
+  {
+    "entityIndex": 9,
+    "name": "Slime",
+    "examine": "A blob of goo.",
+    "respawnTime": 25,
+    "skills": [0, 0, 2000, 1600, 0],
+    "type": 2,
+    "spriteName": "slime",
+    "isTalkable": false,
+    "dropTable": []
+  },
+  {
+    "entityIndex": 10,
+    "name": "Chicken",
+    "examine": "A chicken. What did you expect?",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 400, 0],
+    "type": 2,
+    "spriteName": "chicken",
+    "isTalkable": false,
+    "dropTable": [
+      {
+        "itemID": 103,
+        "dropChance": 75,
+        "amount": 5
+      },
+      {
+        "itemID": 103,
+        "dropChance": 30,
+        "amount": 10
+      },
+      {
+        "itemID": 103,
+        "dropChance": 100,
+        "amount": 2
+      }
+    ]
+  },
+  {
+    "entityIndex": 11,
+    "name": "Acolyte",
+    "examine": "He looks troubled.",
+    "respawnTime": 25,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [1, 5, 23, 26],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 12,
+    "name": "Bandit",
+    "examine": "A wilderness outlaw.",
+    "respawnTime": 25,
+    "skills": [1000, 1000, 1000, 1100, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [2, 25, 18, 18],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 13,
+    "name": "Bandit chief",
+    "examine": "A wilderness outlaw. Just a bit more chief-like.",
+    "respawnTime": 100,
+    "skills": [2500, 2500, 2500, 3000, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [2, 3, 18, 18],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 14,
+    "name": "Shopkeeper",
+    "examine": "If he doesn't have it, he can't sell it!",
+    "respawnTime": 100,
+    "skills": [0, 0, 0, 1100, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 1, 24, 19],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 15,
+    "name": "Bartender Pasanen",
+    "examine": "Always ready with a pint and a story!",
+    "respawnTime": 150,
+    "skills": [0, 0, 50, 200, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 12, 5, 18],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 16,
+    "name": "Mayor Pasanen",
+    "examine": "The voice of the people. The hand of law.",
+    "respawnTime": 300,
+    "skills": [10, 30, 60, 500, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 14, 27, 9],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 17,
+    "name": "Blacksmith Pasanen",
+    "examine": "If it's broken, he can fix it. Or forge you a new one!",
+    "respawnTime": 120,
+    "skills": [20, 50, 0, 400, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 8, 21, 15],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 18,
+    "name": "Merchant Pasanen",
+    "examine": "Got wares, if you got coin.",
+    "respawnTime": 100,
+    "skills": [0, 40, 70, 200, 0],
+    "type": 1,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 1, 24, 19],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 19,
+    "name": "Guard Pasanen",
+    "examine": "He stands tall, ready to protect the realm.",
+    "respawnTime": 200,
+    "skills": [5000, 5000, 10000, 1100, 0],
+
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 10, 20, 25],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 20,
+    "name": "Pasanen",
+    "examine": "Just a humble man with a humble mission.",
+    "respawnTime": 200,
+    "skills": [50, 100, 30, 300, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": true,
+    "palette": [0, 10, 20, 25],
+    "dropTable": []
+  },
+  {
+    "entityIndex": 20,
+    "name": "Esko Pasanen",
+    "examine": "Is he alive or dead? Or something else?",
+    "respawnTime": 200,
+    "skills": [5000, 5000, 5000, 10000, 0],
+    "type": 2,
+    "spriteName": "newman",
+    "isTalkable": false,
+    "palette": [0, 10, 20, 25],
+    "dropTable": []
+  }
+]

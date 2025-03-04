@@ -1,0 +1,64 @@
+[
+  {
+    "shopID": "pasanen",
+    "name": "Pasanen's Wares",
+    "sellsAtPercentage": 130,
+    "buysAtPercentage": 40,
+    "buysAnything": true,
+    "stocks": [
+      {
+        "itemID": 64,
+        "quantity": 5,
+        "restockTime": 100,
+        "isDefaultStock": true
+      },
+      {
+        "itemID": 48,
+        "quantity": 2,
+        "restockTime": 100,
+        "isDefaultStock": true
+      }
+    ],
+
+    "relatedEntities": [14]
+  },
+  {
+    "shopID": "pasanenSwords",
+    "name": "Pasanen's Swords",
+    "sellsAtPercentage": 130,
+    "buysAtPercentage": 40,
+    "buysAnything": false,
+    "stocks": [
+      {
+        "itemID": 100,
+        "quantity": 2,
+        "restockTime": 100,
+        "isDefaultStock": true
+      },
+      {
+        "itemID": 101,
+        "quantity": 2,
+        "restockTime": 100,
+        "isDefaultStock": true
+      },
+      {
+        "itemID": 99,
+        "quantity": 2,
+        "restockTime": 100,
+        "isDefaultStock": true
+      }
+    ],
+
+    "relatedEntities": [17]
+  },
+  {
+    "shopID": "pasanenBar",
+    "name": "Pasanen's Inn",
+    "sellsAtPercentage": 130,
+    "buysAtPercentage": 40,
+    "buysAnything": false,
+    "stocks": [],
+
+    "relatedEntities": [15]
+  }
+]

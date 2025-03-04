@@ -1,0 +1,78 @@
+[
+  {
+    "questID": 0,
+    "mapProperty": "DUKES_QUEST",
+    "name": "Duke's Quest",
+    "description": "Duke has lost his intel report, and needs someone to get it back.",
+    "start": "Speak to Duke in Stonehaven.",
+    "requirements": {
+      "skillRequirements": [],
+      "influenceRequirement": 0,
+      "otherRequirements": ""
+    },
+    "rewards": {
+      "skillRewards": [],
+      "itemRewards": [99],
+      "influenceReward": 1
+    },
+    "steps": {
+      "1": {
+        "description": "Duke told me that the intel report was stolen by goblins."
+      }
+    }
+  },
+  {
+    "questID": 1,
+    "mapProperty": "THINGS_GET_FOGGY",
+    "name": "Things get foggy",
+    "description": "The priest of Stonehaven has sent his young acolyte to deliver a message, but he has not returned. The priest is seeking someone to check on him.",
+    "requirements": {
+      "skillRequirements": [],
+      "influenceRequirement": 0,
+      "otherRequirements": ""
+    },
+    "rewards": {
+      "skillRewards": [3000, 0, 0, 0],
+      "itemRewards": [],
+      "influenceReward": 4
+    },
+    "steps": {
+      "1": {
+        "description": "The priest told me his acolyte hasn't returned. Apparently he was heading south-west, to the village of Eldoria"
+      },
+      "2": {
+        "description": "I must let the priest know what happened to his acolyte."
+      },
+      "3": {
+        "description": "You promised do something about the bandit. I wonder what?"
+      },
+      "4": {
+        "description": "I killed the bandit. He didn't have the message though. Maybe I should check with the other bandits."
+      },
+      "5": {
+        "description": "I took care of the bandits. I should return to the acolyte."
+      }
+    }
+  },
+  {
+    "questID": 2,
+    "mapProperty": "UNDEAD_PASANEN",
+    "name": "The undead Pasanen",
+    "description": "Rumors speak of Esko Pasanen, a once-renowned warrior who succumbed to greed and madness, dooming his soul to eternal undeath. His crypt lies deep within the Forest, guarded by the cursed remnants of his fallen comrades. Pasanen's believe Esko Pasanen's spirit can be freed—but only by one brave enough to confront him. ",
+    "requirements": {
+      "skillRequirements": [],
+      "influenceRequirement": 0,
+      "otherRequirements": ""
+    },
+    "rewards": {
+      "skillRewards": [],
+      "itemRewards": [101],
+      "influenceReward": 1
+    },
+    "steps": {
+      "1": {
+        "description": "I spoke to the bartender about the undead Pasanen. I should gather more information."
+      }
+    }
+  }
+]

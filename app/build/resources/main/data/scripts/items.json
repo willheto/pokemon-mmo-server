@@ -1,0 +1,10 @@
+[
+  {
+    "itemID": 1,
+    "name": "Poké Ball",
+    "examine": "A device for catching wild Pokémon.",
+    "isStackable": true,
+    "spriteName": "pokeball.png",
+    "value": 20
+  }
+]

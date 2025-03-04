@@ -1,0 +1,21 @@
+services:
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_DATABASE: gameLocal
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: test
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysqldata:

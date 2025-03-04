@@ -1,0 +1,44 @@
+[
+  {
+    "spellID": 1,
+    "name": "Home teleport",
+    "type": 1,
+    "level_req": 1,
+    "targetX": 75,
+    "targetY": 25
+  },
+  {
+    "spellID": 2,
+    "name": "Ice Burst",
+    "type": 2,
+    "level_req": 1,
+    "targetX": null,
+    "targetY": null,
+    "maxHit": 5
+  },
+  {
+    "spellID": 3,
+    "name": "Snare",
+    "type": 3,
+    "level_req": 1,
+    "targetX": null,
+    "targetY": null
+  },
+  {
+    "spellID": 4,
+    "name": "Fire Burst",
+    "type": 2,
+    "level_req": 2,
+    "targetX": null,
+    "targetY": null,
+    "maxHit": 7
+  },
+  {
+    "spellID": 5,
+    "name": "Pasanen Village teleport",
+    "type": 1,
+    "level_req": 5,
+    "targetX": 188,
+    "targetY": 97
+  }
+]
