@@ -45,7 +45,6 @@ public class WildBattleTurnEvent {
         this.isPlayersMove = isPlayersMove;
         this.isRunSuccessful = isRunSuccessful;
         this.actionType = BattleOption.RUN;
-
     }
 
     public void setBattleOver(boolean isPlayerWinner) {

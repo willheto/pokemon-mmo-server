@@ -22,18 +22,20 @@ import com.g8e.gameserver.network.actions.move.PlayerMove;
 import com.g8e.gameserver.network.actions.move.PlayerTakeMoveAction;
 import com.g8e.gameserver.network.actions.move.PlayerTalkMoveAction;
 import com.g8e.gameserver.network.actions.move.StartBattleAction;
+import com.g8e.gameserver.network.actions.story.UpdateStoryProgressAction;
 import com.g8e.gameserver.tile.TilePosition;
 import com.g8e.util.Logger;
 import com.google.gson.Gson;
 
 public class Player extends Entity {
 
-    public static final int playerStartingX = 135;
-    public static final int playerStartingY = 90;
+    public static final int playerStartingX = 160;
+    public static final int playerStartingY = 321;
 
     public int accountID;
     public int playerID;
     public boolean needsFullChunkUpdate = false;
+    public int storyProgress;
 
     public Player(World world, DBPlayer dbPlayer, String uniquePlayerID, String username, int accountID) {
         super(uniquePlayerID, 0, world, dbPlayer.getWorldX(), dbPlayer.getWorldY(), username,
@@ -45,6 +47,7 @@ public class Player extends Entity {
         this.originalWorldY = playerStartingY;
         this.inventory = dbPlayer.getInventory();
         this.inventoryAmounts = dbPlayer.getInventoryAmounts();
+        this.storyProgress = dbPlayer.getStoryProgress();
     }
 
     @Override
@@ -111,6 +114,14 @@ public class Player extends Entity {
             CommonQueries.savePlayerPositionByAccountId(this.accountID, this.worldX, this.worldY);
         } catch (Exception e) {
             Logger.printError("Failed to save player position");
+        }
+    }
+
+    public void saveCurrentStoryProgress() {
+        try {
+            CommonQueries.savePlayerStoryProgressByAccountId(this.accountID, this.storyProgress);
+        } catch (Exception e) {
+            Logger.printError("Failed to save player story progress");
         }
     }
 
@@ -218,6 +229,7 @@ public class Player extends Entity {
                 } else if (this.wildBattle != null) {
                     switch (battleAction.getOption()) {
                         case FIGHT -> {
+
                             PokemonMove move = this.world.pokemonMovesManager
                                     .getPokemonMoveById(battleAction.getMoveId());
                             this.wildBattle.setEntityPendingAction(BattleOption.FIGHT, move.getId());
@@ -237,10 +249,14 @@ public class Player extends Entity {
                 }
             }
 
-            if (action instanceof PlayerTakeMoveAction) {
-                PlayerTakeMoveAction playerTakeMoveAction = (PlayerTakeMoveAction) action;
+            if (action instanceof PlayerTakeMoveAction playerTakeMoveAction) {
                 this.handlePlayerTakeMove(playerTakeMoveAction.getUniqueItemID());
                 this.goalAction = null;
+            }
+
+            if (action instanceof UpdateStoryProgressAction updateStoryProgressAction) {
+                this.storyProgress = updateStoryProgressAction.getProgress();
+                this.saveCurrentStoryProgress();
             }
 
         }
@@ -274,7 +290,7 @@ public class Player extends Entity {
         addItemToInventory(item.getItemID(), item.getAmount());
         this.world.itemsManager.removeItem(item.getUniqueID());
 
-        SoundEvent soundEvent = new SoundEvent("pick_up.wav", true, false, this.entityID, false);
+        SoundEvent soundEvent = new SoundEvent("pick_up.ogg", true, false, this.entityID, false);
         this.world.tickSoundEvents.add(soundEvent);
 
     }
@@ -375,7 +391,9 @@ public class Player extends Entity {
 
     public void healAllPokemon() {
         for (int i = 0; i < this.party.length; i++) {
-            this.party[i].heal();
+            if (this.party[i] != null) {
+                this.party[i].heal();
+            }
         }
     }
 

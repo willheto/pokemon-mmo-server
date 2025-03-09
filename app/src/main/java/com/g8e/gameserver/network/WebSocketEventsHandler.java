@@ -35,6 +35,7 @@ import com.g8e.gameserver.network.actions.move.StartBattleAction;
 import com.g8e.gameserver.network.actions.shop.BuyItemAction;
 import com.g8e.gameserver.network.actions.shop.SellItemAction;
 import com.g8e.gameserver.network.actions.shop.TradeMoveAction;
+import com.g8e.gameserver.network.actions.story.UpdateStoryProgressAction;
 import com.g8e.gameserver.network.compressing.Compress;
 import com.g8e.gameserver.network.dataTransferModels.DTONpc;
 import com.g8e.gameserver.network.dataTransferModels.DTOPlayer;
@@ -136,15 +137,11 @@ public class WebSocketEventsHandler {
     }
 
     private void addDefaultChatMessages(String name) {
-        ChatMessage welcomeMessage = new ChatMessage(name, "Welcome to the game!",
+        ChatMessage welcomeMessage = new ChatMessage(name, "Welcome to Pokemon online!",
                 System.currentTimeMillis(),
                 false);
 
-        ChatMessage tutorialMessage = new ChatMessage(name,
-                "You can interact with the world using your mouse.", System.currentTimeMillis(), false);
-
         world.addChatMessage(welcomeMessage);
-        world.addChatMessage(tutorialMessage);
     }
 
     public void handleMessage(WebSocket conn, String message) {
@@ -220,6 +217,12 @@ public class WebSocketEventsHandler {
             case "battleAction" -> {
                 BattleAction battleAction = gson.fromJson(message, BattleAction.class);
                 this.world.enqueueAction(battleAction);
+            }
+
+            case "updateStoryProgress" -> {
+                UpdateStoryProgressAction updateStoryProgressAction = gson.fromJson(message,
+                        UpdateStoryProgressAction.class);
+                this.world.enqueueAction(updateStoryProgressAction);
             }
 
             default -> {

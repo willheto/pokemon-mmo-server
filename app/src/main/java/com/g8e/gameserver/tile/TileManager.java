@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 import com.g8e.gameserver.World;
-import com.g8e.util.Logger;
 
 public class TileManager {
 
@@ -134,17 +133,28 @@ public class TileManager {
                     .read(getClass().getResourceAsStream("/data/tilesheets/pokemon_online_tilesheet.png"));
 
             int numTilesAcross = tileSheet.getWidth() / 8;
-            Logger.printInfo("Number of tiles across: " + numTilesAcross);
-            tile = new Tile[numTilesAcross * 6];
+            tile = new Tile[numTilesAcross * 50];
             for (int col = 0; col < numTilesAcross; col++) {
-                for (int row = 0; row < 6; row++) {
+                for (int row = 0; row < 50; row++) {
                     int index = col + row * numTilesAcross;
 
                     if (index >= 310 && index <= 313) {
                         tile[index] = new Tile(false, index);
-                    }
-
-                    else {
+                    } else if (index == 869) {
+                        tile[index] = new Tile(false, index); // floor on house
+                    } else if (index >= 1139 && index <= 1142) {
+                        tile[index] = new Tile(false, index); // floor red on house
+                    } else if (index >= 1201 && index <= 1204) {
+                        tile[index] = new Tile(false, index); // floor red on house
+                    } else if (index == 955 || index == 966) {
+                        tile[index] = new Tile(false, index); // floor red on house
+                    }   else if (index == 261 || index == 262 || index == 323 || index == 324) {
+                        tile[index] = new Tile(false, index); // doors
+                    } else if (index >= 226 && index <= 229) {
+                        tile[index] = new Tile(false, index); // doors
+                    } else if (index >= 2046) {
+                        tile[index] = new Tile(false, index); // doors
+                    } else {
                         tile[index] = new Tile(true, index);
                     }
                 }

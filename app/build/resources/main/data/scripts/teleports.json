@@ -1,0 +1,74 @@
+[
+  {
+    "description": "Players house F2->F1",
+    "triggerTiles": [
+      {
+        "x": 166,
+        "y": 315
+      }
+    ],
+    "destinationTile": {
+      "x": 132,
+      "y": 316
+    },
+    "sfx": "stairs",
+    "facingDirectionAfterTeleport": "DOWN"
+  },
+  {
+    "description": "Players house F1->F2",
+    "triggerTiles": [
+      {
+        "x": 132,
+        "y": 315
+      }
+    ],
+    "destinationTile": {
+      "x": 166,
+      "y": 316
+    },
+    "sfx": "stairs",
+    "facingDirectionAfterTeleport": "DOWN"
+  },
+  {
+    "description": "Out of players house",
+    "triggerTiles": [
+      {
+        "x": 126,
+        "y": 329
+      },
+      {
+        "x": 127,
+        "y": 329
+      },
+      {
+        "x": 128,
+        "y": 329
+      },
+      {
+        "x": 129,
+        "y": 329
+      }
+    ],
+    "destinationTile": {
+      "x": 248,
+      "y": 193
+    },
+    "sfx": "stairs",
+    "facingDirectionAfterTeleport": "DOWN"
+  },
+  {
+    "description": "Into players house",
+    "triggerTiles": [
+      {
+        "x": 248,
+        "y": 191
+      }
+    ],
+    "destinationTile": {
+      "x": 127,
+      "y": 328
+    },
+    "sfx": "stairs",
+    "facingDirectionAfterTeleport": "UP"
+  }
+]

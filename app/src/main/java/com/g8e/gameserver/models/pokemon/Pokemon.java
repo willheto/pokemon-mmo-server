@@ -106,42 +106,29 @@ public class Pokemon {
         this.maxHp = this.hp;
 
         List<PokemonMoveLearnCurve> movesLearned = data.getMovesLearned();
-        // log first item on movesLearned
         // loops through the list reverse, and set up to 4 moves pokemon is able to
         // learn on its level
-        for (int i = movesLearned.size() - 1; i >= 0; i--) {
-
-            if (movesLearned.get(i).getLevel() <= level) {
-                int moveId = pokemonMovesManager.getMoveIdByName(movesLearned.get(i).getName());
-                if (moveId != -1) {
-                    // Check if the move is already known to avoid duplicates
-                    boolean alreadyKnown = false;
-                    for (int m : moves) {
-                        if (m == moveId) {
-                            alreadyKnown = true;
-                            break;
-                        }
-                    }
-                    if (alreadyKnown)
-                        continue;
-
-                    // Shift moves up (preserving order and removing gaps)
-                    if (moves[3] == 0) {
-                        moves[3] = moveId;
-                    } else {
-                        // Shift moves left to make space for the new move at the last position
-                        for (int j = 0; j < 3; j++) {
-                            if (moves[j] == 0) { // Move everything up to fill gaps
-                                for (int k = j; k < 3; k++) {
-                                    moves[k] = moves[k + 1];
-                                }
-                                moves[3] = 0; // Ensure the last move is cleared before inserting
-                            }
-                        }
-                        // Add the new move in the last position
-                        moves[3] = moveId;
+        for (int i = 0; i < movesLearned.size(); i++) {
+            PokemonMoveLearnCurve moveLearned = movesLearned.get(movesLearned.size() - 1 - i);
+            int moveID = pokemonMovesManager.getMoveIdByName(moveLearned.getName());
+            if (moveLearned.getLevel() <= level) {
+                // find first empty slot
+                for (int j = 0; j < 4; j++) {
+                    if (moves[j] == 0) {
+                        moves[j] = moveID;
+                        break;
                     }
                 }
+
+                // if no free slots, start replacing moves. first replce first move, then
+                // second...
+                if (moves[3] != 0) {
+                    moves[0] = moves[1];
+                    moves[1] = moves[2];
+                    moves[2] = moves[3];
+                    moves[3] = moveID;
+                }
+
             }
         }
 
@@ -334,15 +321,16 @@ public class Pokemon {
         // Apply damage to target's HP, ensuring it doesn't go below 0
         target.hp -= damage;
 
-        if (target.pokemonID != null) {
-            target.savePokemonHp();
-        }
-
         if (target.hp < 0) {
             target.hp = 0;
         }
 
+        if (target.pokemonID != null) {
+            target.savePokemonHp();
+        }
+
         Logger.printDebug("Damage dealt: " + damage + " (Effectiveness: " + effectiveness + ")");
+        Logger.printDebug("Target's HP is now: " + target.hp + "/" + target.maxHp);
 
         // return -1 if not very effective, 0 if normal, 1 if super effective
         return (effectiveness == 0.5) ? -1 : (effectiveness == 2.0) ? 1 : 0;
@@ -482,6 +470,8 @@ public class Pokemon {
     public void heal() {
         int maxHp = calculateHP(new PokemonsManager().getPokemonDataByIndex(id).getHp(), hpIv, hpEv);
         this.hp = maxHp;
+        Logger.printDebug("hp: " + hp + "/" + maxHp);
+        this.savePokemonHp();
     }
 
     // Method to adjust evasion (e.g., from moves like Minimize)

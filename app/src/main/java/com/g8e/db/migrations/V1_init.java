@@ -26,7 +26,8 @@ public class V1_init {
             + "world_x INT,"
             + "world_y INT,"
             + "inventory JSON,"
-            + "inventoryAmounts JSON"
+            + "inventoryAmounts JSON,"
+            + "storyProgress INT"
             + ");";
 
     String createPokemonsTable = "CREATE TABLE IF NOT EXISTS pokemons ("
@@ -77,17 +78,21 @@ public class V1_init {
         try {
             Connection connection = DriverManager.getConnection(dotenv.get("DB_URL"), dotenv.get("DB_USERNAME"),
                     dotenv.get("DB_PASSWORD"));
+
+            // Drop tables in reverse order of creation to avoid foreign key constraint
+            // errors
+            connection.createStatement().executeUpdate("DROP TABLE IF EXISTS pokemons;");
+            Logger.printInfo("Dropped pokemons table");
+
             connection.createStatement().executeUpdate("DROP TABLE IF EXISTS players;");
             Logger.printInfo("Dropped players table");
 
             connection.createStatement().executeUpdate("DROP TABLE IF EXISTS accounts;");
             Logger.printInfo("Dropped accounts table");
 
-            connection.createStatement().executeUpdate("DROP TABLE IF EXISTS pokemons;");
-            Logger.printInfo("Dropped pokemons table");
-
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 }

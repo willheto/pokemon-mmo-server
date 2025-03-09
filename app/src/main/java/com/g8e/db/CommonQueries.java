@@ -41,7 +41,8 @@ public class CommonQueries {
                         rs.getInt("world_x"),
                         rs.getInt("world_y"),
                         parseIntArray(rs.getString("inventory")),
-                        parseIntArray(rs.getString("inventoryAmounts")));
+                        parseIntArray(rs.getString("inventoryAmounts")),
+                        rs.getInt("storyProgress"));
             }
             return null;
         }
@@ -109,6 +110,16 @@ public class CommonQueries {
             stmt.setString(1, inventory);
             stmt.setString(2, inventoryAmounts);
             stmt.setInt(3, accountId);
+            stmt.executeUpdate();
+        }
+    }
+
+    public static void savePlayerStoryProgressByAccountId(int accountId, int storyProgress) throws SQLException {
+        String query = "UPDATE players SET storyProgress = ? WHERE account_id = ?";
+        try (Connection conn = Database.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, storyProgress);
+            stmt.setInt(2, accountId);
             stmt.executeUpdate();
         }
     }

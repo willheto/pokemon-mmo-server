@@ -11,6 +11,7 @@ import com.g8e.gameserver.managers.EntitiesManager;
 import com.g8e.gameserver.managers.ItemsManager;
 import com.g8e.gameserver.managers.PokemonMovesManager;
 import com.g8e.gameserver.managers.ShopsManager;
+import com.g8e.gameserver.managers.TeleportsManager;
 import com.g8e.gameserver.models.ChatMessage;
 import com.g8e.gameserver.models.entities.Entity;
 import com.g8e.gameserver.models.entities.EntityData;
@@ -37,8 +38,8 @@ import com.google.gson.Gson;
 
 public class World {
     private static final int TICK_RATE = 200;
-    public final int maxWorldCol = 200;
-    public final int maxWorldRow = 200;
+    public final int maxWorldCol = 400;
+    public final int maxWorldRow = 400;
     public final int maxPlayers = 10;
 
     public WebSocketEventsHandler webSocketEventsHandler;
@@ -47,6 +48,7 @@ public class World {
     public ShopsManager shopsManager = new ShopsManager();
     public EntitiesManager entitiesManager = new EntitiesManager();
     public PokemonMovesManager pokemonMovesManager = new PokemonMovesManager();
+    public TeleportsManager teleportsManager = new TeleportsManager();
 
     public List<Player> players = new ArrayList<>();
     public List<Npc> npcs = new ArrayList<>();
@@ -268,7 +270,7 @@ public class World {
     }
 
     private void setInitialNpcs() {
-        addNpc(NpcConstants.RIVAL, 1000, 1000, 1);
+        addNpc(NpcConstants.RIVAL, 232, 195, 10);
     }
 
     private void addNpc(int index, int x, int y, int wanderRange) {

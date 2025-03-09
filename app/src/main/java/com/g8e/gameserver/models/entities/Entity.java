@@ -10,6 +10,7 @@ import com.g8e.gameserver.models.ChatMessage;
 import com.g8e.gameserver.models.Chunkable;
 import com.g8e.gameserver.models.events.WildPokemonEvent;
 import com.g8e.gameserver.models.pokemon.Pokemon;
+import com.g8e.gameserver.models.teleport.TeleportData;
 import com.g8e.gameserver.pathfinding.AStar;
 import com.g8e.gameserver.pathfinding.PathNode;
 import com.g8e.gameserver.tile.Tile;
@@ -262,7 +263,21 @@ public abstract class Entity implements Chunkable {
         this.worldX = worldX;
         this.worldY = worldY;
         if (this instanceof Player player) {
+            TilePosition newTile = new TilePosition(worldX, worldY);
+            TeleportData teleport = this.world.teleportsManager.checkTeleportTriggers(newTile);
+
+            if (teleport != null) {
+                player.worldX = teleport.getDestinationX();
+                player.worldY = teleport.getDestinationY();
+                player.facingDirection = teleport.getFacingDirectionAfterTeleport();
+                player.currentPath = null;
+                player.targetTile = null;
+                player.newTargetTile = null;
+                player.nextTileDirection = null;
+            }
+
             player.savePosition();
+
         }
         updateChunk();
 
@@ -277,7 +292,6 @@ public abstract class Entity implements Chunkable {
                 this.world.tickWildPokemonEvents.add(wildPokemonEvent);
                 WildBattle battle = new WildBattle((Player) this, wildPokemonEvent.wildPokemon);
                 this.wildBattle = battle;
-                this.wildBattle.setEntityActivePokemon(this.party[0]);
                 this.currentPath = null;
                 this.targetTile = null;
                 this.newTargetTile = null;

@@ -18,9 +18,10 @@ public class DatabaseConnection {
                     dotenv.get("DB_USERNAME"),
                     dotenv.get("DB_PASSWORD"));
         } catch (SQLException e) {
-            Logger.printError(
-                    "Error connecting to the database. Make sure the database is running and the credentials are correct.");
-            throw new SQLException(e.getMessage());
+            Logger.printFatalError(
+                    "Error connecting to the database. Is docker container running? " + e.getMessage());
+            throw e;
         }
+
     }
 }

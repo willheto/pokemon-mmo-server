@@ -2,9 +2,6 @@ package com.g8e.gameserver;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 import com.g8e.gameserver.enums.BattleOption;
 import com.g8e.gameserver.managers.PokemonMovesManager;
@@ -29,21 +26,37 @@ public class WildBattle {
 
     private final PokemonsManager pokemonsManager = new PokemonsManager();
     private final PokemonMovesManager pokemonsMovesManager = new PokemonMovesManager();
-    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
-    private List<Pokemon> participants = new ArrayList<>();
+    final private List<Pokemon> participants = new ArrayList<>();
 
     public WildBattle(Player entity, Pokemon wildPokemon) {
         this.entity = entity;
         this.wildPokemon = wildPokemon;
-        this.entityActivePokemon = entity.party[0];
-        this.participants.add(entity.party[0]);
+        // get first healthy pokemon
+        Pokemon firstHealthyPokemonInParty = null;
+        for (Pokemon pokemon : entity.party) {
+            if (pokemon == null) {
+                continue;
+            }
+            if (pokemon.getHp() > 0) {
+                firstHealthyPokemonInParty = pokemon;
+                break;
+            }
+        }
+        this.entityActivePokemon = firstHealthyPokemonInParty;
+        this.participants.add(entityActivePokemon);
     }
 
     public void setEntityPendingAction(BattleOption action, Integer value) {
         this.entityPendingAction = action;
+
         switch (action) {
-            case FIGHT -> this.entityPendingMove = pokemonsMovesManager.getPokemonMoveById(value);
+            case FIGHT -> {
+                if (value == null) {
+                    return;
+                }
+                this.entityPendingMove = pokemonsMovesManager.getPokemonMoveById(value);
+            }
             case ITEM -> this.pendingItemId = this.entity.inventory[value];
             case POKEMON -> this.pendingPokemonIndex = value;
             case RUN -> Logger.printDebug("Run action set");
@@ -87,9 +100,7 @@ public class WildBattle {
         processMove(entityGoesFirst, firstMove, firstPokemon, secondPokemon);
 
         if (secondPokemon.getHp() > 0) {
-            scheduler.schedule(
-                    () -> processMove(!entityGoesFirst, secondMove, secondPokemon, firstPokemon),
-                    8, TimeUnit.SECONDS);
+            processMove(!entityGoesFirst, secondMove, secondPokemon, firstPokemon);
         }
     }
 
@@ -129,12 +140,13 @@ public class WildBattle {
                 }
 
                 if (!isAnyPokemonAlive) {
-                    if (isPlayersMove) {
-                        event.setHp(targetPokemon.getHp());
-                    }
+
+                    event.setHp(targetPokemon.getHp());
+
                     event.isAllPokemonsFainted = true;
                     entity.world.tickWildBattleTurnEvents.add(event);
                     entity.faint();
+                    return;
                 }
             } else {
                 // add xp to all participants
@@ -144,9 +156,7 @@ public class WildBattle {
             }
         }
 
-        if (isPlayersMove) {
-            event.setHp(targetPokemon.getHp());
-        }
+        event.setHp(targetPokemon.getHp());
 
         entity.world.tickWildBattleTurnEvents.add(event);
     }
@@ -177,10 +187,9 @@ public class WildBattle {
         if (event.isCaught) {
             entity.battle = null;
         } else {
-            scheduler.schedule(
-                    () -> processMove(false, pokemonsMovesManager.getPokemonMoveById(1), wildPokemon,
-                            entityActivePokemon),
-                    5, TimeUnit.SECONDS);
+            int randomMove = wildPokemon.getRandomMove();
+            processMove(false, pokemonsMovesManager.getPokemonMoveById(randomMove), wildPokemon,
+                    entityActivePokemon);
         }
     }
 
@@ -192,18 +201,17 @@ public class WildBattle {
                 true,
                 BattleOption.POKEMON);
 
-        // Add event for Pokémon switch
-        entity.world.tickWildBattleTurnEvents.add(event);
         this.entityActivePokemon = entity.party[pendingPokemonIndex];
-
         // Add the new Pokémon to the list of participants if it is not already there
         if (!participants.contains(entityActivePokemon)) {
             participants.add(entityActivePokemon);
         }
 
-        scheduler.schedule(
-                () -> processMove(false, pokemonsMovesManager.getPokemonMoveById(1), wildPokemon, entityActivePokemon),
-                5, TimeUnit.SECONDS);
+        // Add event for Pokémon switch
+        entity.world.tickWildBattleTurnEvents.add(event);
+        int randomMove = wildPokemon.getRandomMove();
+        processMove(false, pokemonsMovesManager.getPokemonMoveById(randomMove), wildPokemon,
+                this.entityActivePokemon);
     }
 
     private void attemptRun() {
@@ -216,20 +224,16 @@ public class WildBattle {
 
         );
 
-        Logger.printDebug("Run attempt: " + runSuccessful);
-        Logger.printInfo("Run chance was " + (wildPokemon.getSpeed() * 255.0 / entityActivePokemon.getSpeed()));
-
         entity.world.tickWildBattleTurnEvents.add(event);
 
         if (runSuccessful) {
             entity.battle = null;
         } else {
             // Schedule enemy move after failed run attempt
-            Logger.printDebug("sending enemy move after failed run attempt");
-            scheduler.schedule(
-                    () -> processMove(false, pokemonsMovesManager.getPokemonMoveById(1), wildPokemon,
-                            entityActivePokemon),
-                    5, TimeUnit.SECONDS);
+            int randomMove = wildPokemon.getRandomMove();
+
+            processMove(false, pokemonsMovesManager.getPokemonMoveById(randomMove), wildPokemon,
+                    entityActivePokemon);
         }
 
     }

@@ -71,12 +71,13 @@ public class AssetLoader {
         }
 
         return assets;
+
     }
 
     public static class Asset {
-        final private String name;
-        final private String type;
-        final private Object data; // Can be a byte array for files or List<Asset> for directories
+        final public String name;
+        final public String type;
+        public Object data; // Can be a byte array for files or List<Asset> for directories
 
         public Asset(String name, String type, Object data) {
             this.name = name;

@@ -56,7 +56,13 @@ public class UpdateServer extends WebSocketServer {
             List<Asset> assets = new AssetLoader().getAssets("/data");
             UpdateResponse response = new UpdateResponse(UpdateConstants.UPDATE_RESPONSE_UPDATE_AVAILABLE,
                     UpdateConstants.CACHE_VERSION, assets);
-            conn.send(gson.toJson(response));
+
+            if (conn.isOpen()) {
+                conn.send(gson.toJson(response));
+            } else {
+                Logger.printError("WebSocket is not open. Cannot send update response.");
+            }
+
         } catch (IOException | URISyntaxException e) {
             Logger.printError("Failed to pack assets: " + e.getMessage());
         }

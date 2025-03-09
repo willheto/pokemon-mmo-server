@@ -11,6 +11,8 @@ import com.g8e.gameserver.pathfinding.PathNode;
 
 public class DTOPlayer implements Chunkable {
 
+    public int storyProgress;
+
     // Entity fields
     public String entityID;
     public int entityIndex;
@@ -38,6 +40,7 @@ public class DTOPlayer implements Chunkable {
         this.party = player.party;
         this.inventory = player.inventory;
         this.inventoryAmounts = player.inventoryAmounts;
+        this.storyProgress = player.storyProgress;
     }
 
     @Override
@@ -65,7 +68,8 @@ public class DTOPlayer implements Chunkable {
                 Objects.equals(this.currentPath, other.currentPath) &&
                 Objects.equals(this.party, other.party) &&
                 Objects.equals(this.inventory, other.inventory) &&
-                Objects.equals(this.inventoryAmounts, other.inventoryAmounts);
+                Objects.equals(this.inventoryAmounts, other.inventoryAmounts) &&
+                this.storyProgress == other.storyProgress;
     }
 
     public String getEntityID() {
