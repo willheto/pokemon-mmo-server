@@ -1,11 +1,11 @@
 
-<h1>g8e</h1>
+<h1>Pokemon MMO server</h1>
 
 **early development**
 
 ## About the project
 
-Open-source MMORPG game-engine/server written from scratch. 600ms tick-based game loop, optimized to support up to 1000+ players online (on the same chunk!) at the same time. Supports serving game assets, models, textures and more from server side. Also includes update server, login server, and register server. Chunking strategy is implemented, and because of that and custom encoding of packets, game remains playable even on 56kbps connection.
+MMO game-engine/server written from scratch. 200ms tick-based game loop, optimized to support up to 1000+ players online (on the same chunk!) at the same time. Supports serving game assets, models, textures and more from server side. Also includes update server, login server, and register server. Chunking strategy is implemented, and because of that and custom encoding of packets, game remains playable even on 56kbps connection.
 
 This reposiroty also includes register server, update server and login server.
 
